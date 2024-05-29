@@ -10,7 +10,7 @@ import Contact from './Contact'
 function App() {
     return (
       <>
-        <Contact />
+        <Portfolio />
       </>
     );
 }

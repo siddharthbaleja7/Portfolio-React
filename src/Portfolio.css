@@ -1,0 +1,100 @@
+body {
+    background-color: black;
+    color: white; /* Ensure all text defaults to white */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#h1 {
+    color: white;
+    margin-top: 15rem;
+    margin-left: 15rem;
+    margin-bottom: 1rem; /* Add some space between the h1 and the Typing component */
+}
+
+.header {
+    color: greenyellow;
+    /* text-align: center; Center the Typing component */
+    margin-top: 2rem; /* Adjust as needed */
+    margin-left: 15rem;
+
+}
+
+.typing-effect {
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+}
+
+.caret {
+    display: inline-block;
+    width: 10px;
+    background-color: white;
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        background-color: transparent;
+    }
+    50% {
+        background-color: black;
+    }
+}
+
+.Nav {
+    text-align: center; /* Center the navigation bar */
+    margin-top: 2rem; /* Add space between the Typing component and the Nav bar */
+}
+
+.NavList {
+    display: flex;
+    margin-left: 15rem;
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0; /* Remove default padding */
+}
+
+.NavList li {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.NavList li a {
+    text-decoration: none;
+    color: white;
+    position: relative; /* Necessary for the after pseudo-element positioning */
+}
+
+.NavList li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: white;
+    transition: width 0.3s ease;
+    position: absolute; /* Position the after pseudo-element absolutely within the parent */
+    bottom: -5px; /* Position it slightly below the text */
+    left: 0;
+}
+
+.NavList li a:hover::after {
+    width: 100%;
+    background: greenyellow; /* Ensure the hover color is visible */
+}
+
+.Image {
+    margin-left: 15rem;
+    margin-top: 2rem; /* Add space between the Nav bar and the images */
+}
+
+.Image a {
+    margin-right: 2rem; /* Add space between the images */
+}
+
+.Image a img {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px; /* Adjust spacing as needed */
+}
