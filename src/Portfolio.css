@@ -4,12 +4,21 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    /* display: flex; */
+    align-items: center;
+    height: 100%;   
+    background-image: url('Free-Download-Gif-Pictures.gif');
+}
+.div{
+    margin-top: 23rem;
+
 }
 
 #h1 {
     color: white;
     margin-top: 15rem;
     margin-left: 15rem;
+    font-size: 50px;
     margin-bottom: 1rem; /* Add some space between the h1 and the Typing component */
 }
 
@@ -22,7 +31,7 @@ body {
 }
 
 .typing-effect {
-    font-size: 24px; /* Adjust size as needed */
+    font-size: 35px; /* Adjust size as needed */
     font-weight: bold;
 }
 
@@ -49,16 +58,15 @@ body {
 }
 
 .NavList {
-    display: flex;
-    margin-left: 15rem;
+    font-size: 25px;
+
+    margin-right: 16rem;
     list-style-type: none; /* Remove bullet points from the list */
-    padding: 0; /* Remove default padding */
+
 }
 
 .NavList li {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+    margin-right: 20rem;
 }
 
 .NavList li a {
@@ -78,10 +86,14 @@ body {
     bottom: -5px; /* Position it slightly below the text */
     left: 0;
 }
+.NavList li a:hover{
+    color: greenyellow;
+    transition: width 0.5s ease;
+}
 
 .NavList li a:hover::after {
     width: 100%;
-    background: greenyellow; /* Ensure the hover color is visible */
+    background: rgb(217, 239, 77);
 }
 
 .Image {

@@ -1,45 +1,90 @@
-import instagram from './instagram.svg'
-import google from './google.svg'
 import github from './github.svg'
+import email from './envelope-solid.svg'
+import location from './location-dot-solid.svg'
+import phone from './phone-volume-solid.svg'
+import share from './share-nodes-solid.svg'
+import LinkedIn from './linkedin.svg'
+import Google from './google.svg'
+import './Contact.css'
+import { Link } from 'react-router-dom'
 function Contact(){
     return(
         <div>
-            <nav>
-                <h1>Siddharth Baleja</h1>
-                <span>
-                    <a href="home.html">Home  </a>
-                    <a href="about.html">About </a>
-                    <a href="Education.html">Education </a>
-                    <a href="Experience.html">Experience</a>
-                    <a href="projects.html">Projects </a>
-                    <a href="skills.html">Skills </a>
-                    <a href="Resume.html">Resume </a>
-                    <a href="Contact.html">Contact </a>
-                </span>
-            </nav>
-            <h2> Contact</h2>
-            <div className="COntacts">
+            <div className="Nav-o">
+                <ul className="NavList">
+                    <h1 className='h1'>Siddharth Baleja</h1>
+                    <li className='tree'>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/About">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/Education">Education</Link>
+                    </li>
+                    <li>
+                        <Link to="/Experience">Experience</Link>
+                    </li>
+                    {/* <li>
+                        <Link to="/Projects">Projects</Link>
+                    </li> */}
+                    <li>
+                        <Link to="/Skills">Skills</Link>
+                    </li>
+                    <li>
+                        <Link to="/Contact">Contact</Link>
+                    </li>
+                </ul>
+            </div>
+            <h2 id='h22'> Contact-------</h2>
+            <div className="Contacts">
                 <ul className="Contact1">
-                    <h3>My Address</h3>
-                    <li>1275 E University Dr</li>
-                    <li>Unit 212</li>
-                    <li>Tempe, AZ 85281</li>
+                    <div className='locate'>
+                        <img src={location} id='location'/>
+                        <h3 id='h3'>My Address</h3>
+                    </div>
+                    <div className='li'>
+                        <li>Electronic City-Phase1</li>
+                        <li>Karnataka</li> 
+                        <li>India</li>
+                    </div>
                 </ul>
                 <ul className="Contact2">
-                    <h3>Social Profiles</h3>
-                    <img src={instagram} />
-                    <img src ={google} />
-                    <img src={github} />
+                    <div className='Social'>
+                        <img src={share} id='social' />
+                        <h3 id='h4'>Social Profiles</h3>
+                    </div>
+                    <div className='img'>
+                        <a href='https://github.com/siddharthbaleja7'>
+                            <img src={github} id='git'/>
+                        </a>
+                        <a href='https://www.linkedin.com/in/siddharth-baleja-197805294/'>
+                            <img src={LinkedIn} id='Linked'/>
+                        </a>
+                        <a href='https://www.google.com'>
+                            <img src={Google} id='Google' />
+                        </a>
+                    </div>
                 </ul>
             </div>
-            <div className='Contact3'>
-                <h3>Email</h3>
-                <li>siddharthbaleja83@gmail.com</li>
-                <li>pkraja@asu.edu</li>
-            </div>
-            <div className='Contact4'>
-                <h3>Contact</h3>
-                <li>+91 9999XXXXXX</li>
+            <div className='Contacts1'>
+                <div className='Contact3'>
+                    <div className='email'>
+                        <img src={email} id='email' />
+                        <h3 id='h4'>Email</h3>
+                    </div>
+                    <div className='lii'>
+                        <li id='liii'>siddharthbaleja83@gmail.com</li>
+                        <li>siddhu@asu.edu</li>
+                    </div>
+                </div>
+                <div className='Contact4'>
+                    <div className='contact'>
+                        <img src={phone} id='phone' />
+                        <h3 id='h4'>Contact</h3>
+                    </div>
+                    <li id='contact'>+91 9999XXXXXX</li>
+                </div>
             </div>
         </div>
     )

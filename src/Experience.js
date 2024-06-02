@@ -1,22 +1,37 @@
+import { Link } from "react-router-dom"
+import './Experience.css'
 function Experience(){
     return(
         <div>
-            <nav>
-                <h1>Siddharth Baleja</h1>
-                <span>
-                    <a href="home.html">Home  </a>
-                    <a href="about.html">About </a>
-                    <a href="Education.html">Education </a>
-                    <a href="Experience.html">Experience</a>
-                    <a href="projects.html">Projects </a>
-                    <a href="skills.html">Skills </a>
-                    <a href="Resume.html">Resume </a>
-                    <a href="Contact.html">Contact </a>
-                </span>
-            </nav>
-            <h2>EXPERIENCE ------------ </h2>
+            <div class="Nav-o">
+                <ul class="NavList">
+                    <h1 class="h1">Siddharth Baleja</h1>
+                    <li class="tree">
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/About">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/Education">Education</Link>
+                    </li>
+                    <li>
+                        <Link to="/Experience">Experience</Link>
+                    </li>
+                    {/* <li>
+                        <Link to="/Projects">Projects</Link>
+                    </li> */}
+                    <li>
+                        <Link to="/Skills">Skills</Link>
+                    </li>
+                    <li>
+                        <Link to="/Contact">Contact</Link>
+                    </li>
+                </ul>
+            </div>
+            <h2 id="h22">EXPERIENCE ------------ </h2>
             <div className="sec1">
-                <h2>Arizona State University</h2>
+                <h2 id="sec1">Arizona State University</h2>
                 <h3>January 2021 - Present</h3>
                 <i>Software Engineer</i>
                 <ul>
@@ -26,7 +41,7 @@ function Experience(){
                 </ul>
             </div>
             <div className="sec2">
-                <h2>Augmenify Infotech Pvt. Ltd.</h2>
+                <h2 id="sec1">Augmenify Infotech Pvt. Ltd.</h2>
                 <h3>August 2020 - November 2020</h3>
                 <i>Backend Developer</i>
                 <ul>
@@ -35,7 +50,7 @@ function Experience(){
                 </ul>
             </div>
             <div className="sec3">
-                <h2>Epitome Corporation Pvt. Ltd.</h2>
+                <h2 id="sec1">Epitome Corporation Pvt. Ltd.</h2>
                 <h3>July 2019 - Dec 2019</h3>
                 <i>Software Developer</i>
                 <ul>
@@ -43,7 +58,7 @@ function Experience(){
                 </ul>
             </div>
             <div className="sec4">
-                <h2>Meditab Software Pvt. Ltd.</h2>
+                <h2 id="sec1">Meditab Software Pvt. Ltd.</h2>
                 <h3>May 2018 - June 2018</h3>
                 <i>Programmer Analyst</i>
                 <ul>
@@ -54,7 +69,7 @@ function Experience(){
                 </ul>
             </div>
             <div className="sec5">
-                <h2>Space Application Centre, ISRO</h2>
+                <h2 id="sec1">Space Application Centre, ISRO</h2>
                 <h3>Jan 2018 - May 2018</h3>
                 <i>Research Intern</i>
                 <ul>
