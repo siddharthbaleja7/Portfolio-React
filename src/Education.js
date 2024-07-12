@@ -50,7 +50,7 @@ function Education(){
             </div>
         </div>
         
-                <div class="Section">
+                {/* <div class="Section">
                     <div class="image-container">
                         <img src={Indian} alt="Ahmedabad University Logo" />
                     </div>
@@ -64,7 +64,7 @@ function Education(){
                             <li>Machine Learning</li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
          </div>
 
         {/* <div class="certifications">

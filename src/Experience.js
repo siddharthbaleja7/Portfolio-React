@@ -29,7 +29,7 @@ function Experience(){
                     </li>
                 </ul>
             </div>
-            <h2 id="h22">EXPERIENCE ------------ </h2>
+            <h2 id="h22">EXPERIENCE ------------ (This is just a Demo)</h2>
             <div className="sec1">
                 <h2 id="sec1">Arizona State University</h2>
                 <h3>January 2021 - Present</h3>
