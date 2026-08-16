@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddharth Baleja — Software Engineer</title>
+<meta name="description" content="Siddharth Baleja — Computer science student and backend engineer building systems, developer tools, and infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --gray-1: #9A9A9A;
+    --gray-2: #6E6E6E;
+    --gray-3: #C7C7C7;
+    --line-dark: #232323;
+    --line-light: #E4E4E1;
+    --sans: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--black); color:var(--white);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--white); color:var(--black); }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:1px solid currentColor; outline-offset:3px;
+  }
+
+  .wrap{ max-width:1400px; margin:0 auto; padding:0 60px; }
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--black);
+    border-bottom:1px solid var(--line-dark);
+    transition:background .25s ease, border-color .25s ease, color .25s ease;
+  }
+  nav.light{ background:var(--white); border-color:var(--line-light); color:var(--black); }
+  nav .wrap{
+    display:flex; justify-content:space-between; align-items:center; height:74px;
+  }
+  .nav-left{ display:flex; align-items:center; gap:8px; }
+  .nav-logo{ display:inline-flex; align-items:center; margin-right:0; text-decoration:none; }
+  .nav-logo svg{ border-radius:50%; display:block; }
+  .nav-logo svg circle{ fill:var(--white); transition:fill .18s ease; }
+  .nav-logo svg text{ fill:var(--black); transition:fill .18s ease; font-family:var(--mono); font-weight:700; font-size:14px; }
+  nav.light .nav-logo svg circle{ fill:var(--black); }
+  nav.light .nav-logo svg text{ fill:var(--white); }
+  .nav-name{ font-weight:700; font-size:15px; letter-spacing:0.02em; }
+  .nav-links{ display:flex; gap:36px; }
+  .nav-links a{
+    font-size:12.5px; font-weight:600; letter-spacing:0.06em;
+    opacity:0.75; transition:opacity .15s ease;
+  }
+  .nav-links a:hover{ opacity:1; }
+
+  /* ===== SECTION base ===== */
+  section{ padding:120px 0; }
+  .light-section{ background:var(--white); color:var(--black); }
+  .sec-label{
+    font-family:var(--mono); font-size:13px; color:var(--gray-1);
+    letter-spacing:0.05em; margin-bottom:28px;
+  }
+  .light-section .sec-label{ color:var(--gray-2); }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ===== HERO ===== */
+  .hero{ padding:110px 0 90px; min-height:100vh; display:flex; align-items:center; }
+  .hero .wrap{ width:100%; }
+  .hero-name{
+    font-weight:900; letter-spacing:-0.02em;
+    font-size:clamp(56px, 9.5vw, 148px);
+    line-height:0.98; text-transform:uppercase;
+  }
+  .hero-name .line-1{ color:var(--white); display:block; }
+  .hero-name .line-2{ color:var(--gray-2); display:block; }
+  .hero-role{
+    font-weight:800; text-transform:uppercase; font-size:clamp(20px,3vw,34px);
+    color:var(--gray-3); margin-top:14px; letter-spacing:0.01em;
+  }
+  .hero-bottom{
+    display:flex; justify-content:flex-end; margin-top:70px;
+  }
+  .hero-desc{
+    max-width:44ch; color:var(--gray-1); font-size:16px; line-height:1.7; text-align:left;
+  }
+
+  /* ===== ABOUT (light) ===== */
+  .about-head{
+    font-weight:900; letter-spacing:-0.02em; text-transform:uppercase;
+    font-size:clamp(44px, 7vw, 90px); line-height:0.98; margin-bottom:44px;
+  }
+  .about-head .l1{ color:var(--white); display:block; }
+  .light-section .about-head .l1{ color:var(--black); }
+  .about-head .l2{ color:#A3A39C; display:block; }
+  .about-inner{ display:grid; grid-template-columns:1.5fr 1fr; gap:70px; align-items:start; }
+  .about-body p{ font-size:17px; line-height:1.85; color:var(--gray-1); margin-bottom:24px; }
+  .light-section .about-body p{ color:#333; }
+  .about-body strong{ color:var(--white); font-weight:700; }
+  .light-section .about-body strong{ color:var(--black); }
+
+  .about-stats{
+    display:flex; flex-direction:column; gap:0;
+    border-top:1px solid var(--line-light);
+    margin-top:6px;
+  }
+  .about-stats > div{ padding:26px 0; border-bottom:1px solid var(--line-light); }
+  .about-stat-num{ font-weight:800; font-size:34px; color:var(--white); }
+  .light-section .about-stat-num{ color:var(--black); }
+  .about-stat-label{ font-size:13px; color:var(--gray-3); margin-top:8px; max-width:26ch; }
+  .light-section .about-stat-label{ color:var(--gray-2); }
+
+  /* ===== WORK ===== */
+  .work-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:44px 0; border-bottom:1px solid var(--line-dark);
+    gap:24px; transition:padding-left .2s ease;
+  }
+  .work-row:first-child{ padding-top:0; }
+  .work-row:hover{ padding-left:14px; }
+  .work-left{ display:flex; align-items:baseline; gap:28px; min-width:0; }
+  .work-idx{ font-family:var(--mono); font-size:14px; color:var(--gray-2); flex-shrink:0; }
+  .work-name{
+    font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;
+    font-size:clamp(30px, 5.4vw, 66px); line-height:1;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .work-right{ display:flex; align-items:center; gap:26px; flex-shrink:0; }
+  .work-meta{
+    font-family:var(--mono); font-size:12.5px; color:var(--gray-1);
+    letter-spacing:0.03em; white-space:nowrap; text-transform:uppercase;
+  }
+  .work-arrow{
+    width:38px; height:38px; border:1px solid var(--line-dark); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .work-row:hover .work-arrow{ background:var(--white); color:var(--black); border-color:var(--white); }
+
+  .work-group-label{
+    font-family:var(--mono); font-size:12px; color:var(--gray-2);
+    text-transform:uppercase; letter-spacing:0.08em; margin:56px 0 4px;
+  }
+  .work-group-label:first-of-type{ margin-top:8px; }
+
+  /* ===== OPEN SOURCE ===== */
+  .os-list{ display:flex; flex-direction:column; }
+  .os-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:26px 0; border-bottom:1px solid var(--line-dark);
+    gap:20px; transition:padding-left .2s ease;
+  }
+  .os-row:first-child{ padding-top:0; }
+  .os-row:hover{ padding-left:14px; }
+  .os-main{ min-width:0; }
+  .os-title{ font-weight:700; font-size:18px; margin-bottom:6px; }
+  .os-desc{ font-size:13.5px; color:var(--gray-1); max-width:56ch; line-height:1.6; }
+  .os-right{ display:flex; align-items:center; gap:20px; flex-shrink:0; }
+  .os-count{ font-family:var(--mono); font-size:13px; color:var(--gray-1); white-space:nowrap; }
+  .os-link{ font-family:var(--mono); font-size:12.5px; color:var(--gray-3); white-space:nowrap; }
+  .os-row:hover .os-link{ color:var(--white); }
+
+  /* ===== CONTACT ===== */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  .contact-title{
+    font-weight:900; text-transform:uppercase; letter-spacing:-0.02em;
+    font-size:clamp(40px, 6vw, 72px); margin-bottom:44px;
+  }
+  .contact-methods{ display:flex; flex-direction:column; gap:6px; }
+  .contact-methods a{
+    font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;
+    font-size:clamp(28px, 4vw, 46px); color:var(--gray-3);
+    transition:color .2s ease;
+  }
+  .contact-methods a:hover{ color:var(--white); }
+
+  .form-field{ margin-bottom:30px; }
+  .form-field label{
+    display:block; font-size:14px; color:var(--gray-1); margin-bottom:10px;
+  }
+  .form-field input, .form-field textarea{
+    width:100%; background:transparent; border:none; border-bottom:1px solid var(--line-dark);
+    color:var(--white); font-family:var(--sans); font-size:16px; padding:8px 0;
+    resize:none; overflow:hidden; display:block; line-height:1.5;
+  }
+  .form-field input:focus, .form-field textarea:focus{ border-color:var(--gray-1); outline:none; }
+  .send-btn{
+    width:100%; background:var(--white); color:var(--black);
+    padding:20px 26px; display:flex; justify-content:space-between; align-items:center;
+    font-weight:700; text-transform:uppercase; font-size:14px; letter-spacing:0.04em;
+    margin-top:8px; transition:opacity .2s ease;
+  }
+  .send-btn:hover{ opacity:0.85; }
+
+  footer{ padding:44px 0; border-top:1px solid var(--line-dark); }
+  footer .wrap{
+    display:flex; justify-content:space-between; font-size:12px; color:var(--gray-2); flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width: 860px){
+    .wrap{ padding:0 24px; }
+    .nav-links{ gap:18px; }
+    .nav-logo{ margin-right:6px; }
+    section{ padding:80px 0; }
+    .hero-bottom{ justify-content:flex-start; }
+    .work-row{ flex-direction:column; align-items:flex-start; gap:16px; }
+    .work-right{ align-self:flex-end; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .about-inner{ grid-template-columns:1fr; gap:36px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+    <div class="wrap">
+    <div class="nav-left">
+      <a class="nav-logo" href="#top" aria-label="Home">
+        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="false">
+          <circle cx="18" cy="18" r="18" fill="#FFFFFF" />
+          <text x="50%" y="54%" font-family="JetBrains Mono, monospace" font-weight="700" font-size="14" fill="#0A0A0A" text-anchor="middle">SB</text>
+        </svg>
+      </a>
+      <a class="nav-name" href="#top">SIDDHARTH BALEJA</a>
+    </div>
+    <div class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#work">SELECTED WORK</a>
+      <a href="#opensource">OPEN SOURCE</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top" data-theme="dark">
+  <div class="wrap">
+    <h1 class="hero-name">
+      <span class="line-1">SIDDHARTH</span>
+      <span class="line-2">BALEJA</span>
+    </h1>
+    <div class="hero-role">CS STUDENT | BACKEND SWE</div>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Third-year computer science student at Scaler School of Technology & BITS Pilani,
+        building backend systems, infrastructure, and developer tooling.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="light-section" id="about" data-theme="light">
+  <div class="wrap">
+    <div class="sec-label">02 / ABOUT</div>
+    <h2 class="about-head"><span class="l1">HI</span><span class="l2">THERE</span></h2>
+    <div class="about-inner">
+      <div class="about-body reveal">
+        <p>I'm a backend engineer and computer science student, currently interning and building
+        projects that sit somewhere between infrastructure, AI tooling, and product engineering.
+        I like working close to how systems actually behave under load <strong>race conditions,
+        query bottlenecks, tenant isolation</strong> more than I like polishing a UI.</p>
+        <p>Most of my recent work has been in Python (FastAPI),PostgreSQL, AWS (Lambda, S3) ranging
+        from an automated allocation engine at Pazcare to a multi-tenant store provisioning platform
+        and a retrieval-augmented chatbot built on FAISS and Llama.</p>
+        <p>Outside of internships and projects, I spend a fair bit of time contributing to open
+        source more on that below. When I'm not writing code I'm usually solving something on
+        LeetCode or reading through someone else's PR.</p>
+      </div>
+      <div class="about-stats reveal">
+        <div>
+          <div class="about-stat-num">99.9%</div>
+          <div class="about-stat-label">API success rate maintained at Pazcare</div>
+        </div>
+        <div>
+          <div class="about-stat-num">27+</div>
+          <div class="about-stat-label">merged open-source pull requests</div>
+        </div>
+        <div>
+          <div class="about-stat-num">1716</div>
+          <div class="about-stat-label">LeetCode rating, top 8% globally</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" data-theme="dark">
+  <div class="wrap">
+    <div class="sec-label">03 / EXPERIENCE</div>
+    <h2 class="about-head"><span class="l1">BACKEND ENGINEER</span><span class="l2">INTERN — PAZCARE</span></h2>
+    <div class="about-inner">
+      <div class="about-body reveal">
+        <p><strong>Feb 2025 – Jul 2025</strong></p>
+        <p>Developed and deployed an automated allocation engine to dynamically assign health checkup packages based on employee data and salary bands, replacing manual HR workflows and reducing onboarding time by 40%.</p>
+        <p>Upgraded the Claim Detection pipeline using rule-based heuristics and pattern matching, improving automated identification accuracy by 15% and reducing false-positive rates by 22%.</p>
+        <p>Resolved critical race conditions and N+1 query bottlenecks across 6 core API endpoints, maintaining a 99.9% success rate for claim submissions while cutting average response times by 30%.</p>
+        <p><strong>Tech:</strong> Python (FastAPI), PostgreSQL, AWS (Lambda, S3)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" data-theme="dark">
+  <div class="wrap">
+    <div class="sec-label">04 / SELECTED WORK</div>
+
+    <div class="work-group-label">Backend &amp; Infra</div>
+    <div class="work-row reveal">
+      <div class="work-left">
+        <div class="work-idx">(01)</div>
+        <a class="work-name" href="https://github.com/siddharthbaleja7/Urumi-Store-Platform" target="_blank" rel="noopener">STORE PLATFORM</a>
+      </div>
+      <div class="work-right">
+        <div class="work-meta">MULTI-TENANT / KUBERNETES</div>
+        <a class="work-arrow" href="https://github.com/siddharthbaleja7/Urumi-Store-Platform" target="_blank" rel="noopener">↗</a>
+      </div>
+    </div>
+
+    <div class="work-row reveal">
+      <div class="work-left">
+        <div class="work-idx">(02)</div>
+        <a class="work-name" href="https://github.com/siddharthbaleja7/AI-Powered-Email-Aggregator" target="_blank" rel="noopener">MAIL AGGREGATOR</a>
+      </div>
+      <div class="work-right">
+        <div class="work-meta">REAL-TIME SYNC / NODE.JS</div>
+        <a class="work-arrow" href="https://github.com/siddharthbaleja7/AI-Powered-Email-Aggregator" target="_blank" rel="noopener">↗</a>
+      </div>
+    </div>
+
+    <div class="work-group-label">AI / ML</div>
+    <div class="work-row reveal">
+      <div class="work-left">
+        <div class="work-idx">(03)</div>
+        <a class="work-name" href="https://github.com/siddharthbaleja7/clearpath-chatbot" target="_blank" rel="noopener">CLEARPATH</a>
+      </div>
+      <div class="work-right">
+        <div class="work-meta">RAG CHATBOT / PYTHON</div>
+        <a class="work-arrow" href="https://github.com/siddharthbaleja7/clearpath-chatbot" target="_blank" rel="noopener">↗</a>
+      </div>
+    </div>
+
+    <div class="work-row reveal">
+      <div class="work-left">
+        <div class="work-idx">(04)</div>
+        <a class="work-name" href="https://github.com/siddharthbaleja7/Mental-Health-V0" target="_blank" rel="noopener">VOICE ANALYSIS</a>
+      </div>
+      <div class="work-right">
+        <div class="work-meta">MENTAL HEALTH ML / PYTHON</div>
+        <a class="work-arrow" href="https://github.com/siddharthbaleja7/Mental-Health-V0" target="_blank" rel="noopener">↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opensource" data-theme="dark">
+  <div class="wrap">
+    <div class="sec-label">05 / OPEN SOURCE</div>
+    <div class="os-list">
+      <div class="os-row reveal">
+        <div class="os-main">
+          <div class="os-title">GSoC 2026 — Eclipse Thingweb</div>
+          <div class="os-desc">Top contributor across Eclipse Thingweb, OpenMRS, and Skrub — TypeScript, Python, and Node.js.</div>
+        </div>
+      </div>
+      <div class="os-row reveal">
+        <div class="os-main">
+          <div class="os-title">Hacktoberfest 2025 & PLDG Web3</div>
+          <div class="os-desc">Super Contributor — production fixes across healthcare systems, decentralized storage, and ML tooling.</div>
+        </div>
+      </div>
+      <div class="os-row reveal">
+        <div class="os-main">
+          <div class="os-title">Meta PyTorch OpenEnv Hackathon</div>
+          <div class="os-desc">Finalist — top 800 of 31,000+ registered teams, qualified for the Grand Finale in Bangalore.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-theme="dark">
+  <div class="wrap">
+    <div class="sec-label">06 / CONTACT</div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="contact-title">LET'S<br>TALK</h2>
+        <div class="contact-methods">
+          <a href="mailto:siddharth.23bcs10161@sst.scaler.com">E-MAIL</a>
+          <a href="https://github.com/siddharthbaleja7" target="_blank" rel="noopener">GITHUB</a>
+          <a href="https://www.linkedin.com/in/siddharth-baleja-197805294/" target="_blank" rel="noopener">LINKEDIN</a>
+        </div>
+      </div>
+      <form class="reveal" id="contact-form">
+        <div class="form-field">
+          <label for="cf-name">Your Name</label>
+          <input id="cf-name" type="text" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-email">Your Email</label>
+          <input id="cf-email" type="email" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-msg">What are you working on?</label>
+          <textarea id="cf-msg" rows="1" required></textarea>
+        </div>
+        <button class="send-btn" type="submit">SEND MESSAGE <span>→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Siddharth Baleja</div>
+    <div>Bengaluru, India</div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const io = new IntersectionObserver(([e])=>{ if(e.isIntersecting){ el.classList.add('in'); io.disconnect(); } }, {threshold:0.12});
+    io.observe(el);
+  });
+
+  // Nav theme switch based on section behind it
+  const nav = document.getElementById('nav');
+  const sections = document.querySelectorAll('section[data-theme]');
+  const navIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting && entry.intersectionRatio > 0){
+        const theme = entry.target.getAttribute('data-theme');
+        nav.classList.toggle('light', theme === 'light');
+      }
+    });
+  }, { rootMargin: '-74px 0px -85% 0px', threshold: 0 });
+  sections.forEach(s => navIO.observe(s));
+
+  // Auto-grow the message textarea so the underline hugs the text
+  const msgField = document.getElementById('cf-msg');
+  function autoGrow(){ msgField.style.height = 'auto'; msgField.style.height = msgField.scrollHeight + 'px'; }
+  msgField.addEventListener('input', autoGrow);
+  autoGrow();
+
+  // Contact form: route through mailto since there's no backend
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value;
+    const email = document.getElementById('cf-email').value;
+    const msg = document.getElementById('cf-msg').value;
+    const body = encodeURIComponent(`From: ${name} (${email})\n\n${msg}`);
+    window.location.href = `mailto:siddharth.23bcs10161@sst.scaler.com?subject=Portfolio contact&body=${body}`;
+  });
+</script>
+
+</body>
+</html>
